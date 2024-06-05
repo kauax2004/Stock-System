@@ -4,7 +4,7 @@ import stock.Account;
 import stock.Stock;
 
 public class Company {
-	private String name;
+	protected String name;
 	private String cnpj;
 	private String endereco;
 	private int quantityEmployee;
@@ -18,11 +18,15 @@ public class Company {
 		//this.account = new Account(email, password, stock);
 	}
 
-	
-	
 	@Override
 	public String toString() {
 		return "Company [name=" + name + ", cnpj=" + cnpj + ", endereco=" + endereco + ", quantityEmployee="
 				+ quantityEmployee + ", account=" + account + "]";
 	}
+
+	public String getName() {
+		return name;
+	}
+	
+	
 }

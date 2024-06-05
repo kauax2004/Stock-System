@@ -50,7 +50,6 @@ public class Account implements Security {
 	}
 
 	
-
 	
 	@Override
 	public String toString() {
@@ -69,7 +68,7 @@ public class Account implements Security {
 
 	@Override
 	public boolean isAccountValid(String email, String password) {
-		return false;
+		return true;
 	}
 
 	

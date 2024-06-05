@@ -1,9 +1,3 @@
-//import java.util.ArrayList;
-//import java.util.Scanner;
-//import stock.Account;
-
-//import stock.Account;
-
 public class MainStock {
 
 	public static void main(String[] args) {

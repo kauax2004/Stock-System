@@ -11,8 +11,7 @@ public class Stock {
 		products = new ArrayList<Product>();
 	}
 
-	public Stock() {
-		// TODO Auto-generated constructor stub
+	public Stock() { // Outro construtor para o stock inicar = null
 	}
 
 	public void addProducts(Product product) {
@@ -46,4 +45,6 @@ public class Stock {
 			}
 		}
 	}
+
+	
 }

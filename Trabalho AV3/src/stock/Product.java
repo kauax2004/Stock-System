@@ -1,7 +1,5 @@
 package stock;
 
-import java.util.Objects;
-
 import company.Supplier;
 
 public class Product {
@@ -70,35 +68,21 @@ public class Product {
 	public void setStockQuantity(int stockQuantity) {
 		this.stockQuantity = stockQuantity;
 	}
+	
+	public void addStockQuantity(int stockQuantity) {
+		this.stockQuantity += stockQuantity;
+	}
+	public void removeStockQuantity(int stockQuantity) {
+		this.stockQuantity -= stockQuantity;
+	}
 	public void setNameSupplier(String switchSupplier) {
 		supplier.setName(switchSupplier);
 	}
-	
-	
 
 	@Override
 	public String toString() {
-		return "Product [name=" + name + ", id=" + id + ", price=" + price + ", stockQuantity=" + stockQuantity
-				+ ", provider=" + supplier + "]";
+		return "Product [name=" + name + ", id=" + id + ", price=" + price + ", stockQuantity=" + stockQuantity + "]";
 	}
 
-	@Override
-	public int hashCode() {
-		return Objects.hash(id, name, price, supplier, stockQuantity);
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Product other = (Product) obj;
-		return Objects.equals(id, other.id) && Objects.equals(name, other.name)
-				&& Double.doubleToLongBits(price) == Double.doubleToLongBits(other.price)
-				&& Objects.equals(supplier, other.supplier) && stockQuantity == other.stockQuantity;
-	}
 	
 }

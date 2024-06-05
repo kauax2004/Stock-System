@@ -1,29 +1,21 @@
 package company;
 
-public class Supplier {
-	private String name;
-	private String cnpj;
-	private String address;
+import stock.Stock;
+
+public class Supplier extends Company {
 	
-	public Supplier(String name, String cnpj, String address) {
-		super();
-		this.name = name;
-		this.cnpj = cnpj;
-		this.address = address;
+	public Supplier(String name, String cnpj, String endereco, int quantityEmployee, String email, String password,
+			Stock stock) {
+		super(name, cnpj, endereco, quantityEmployee, email, password, stock);
 	}
-
-	@Override
-	public String toString() {
-		return "Supplier [name=" + name + ", cnpj=" + cnpj + ", address=" + address + "]";
-	}
-
+	
 	public String getName() {
 		return name;
 	}
-
+	
 	public void setName(String name) {
 		this.name = name;
 	}
-	
+
 	
 }
