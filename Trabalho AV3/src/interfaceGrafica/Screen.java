@@ -85,8 +85,8 @@ public class Screen extends JFrame implements ActionListener,Security{
 		return email.matches("(.*)@gmail.com");	
 		}
 	
-	/*@Override
-	public boolean isAccountValid(Account acc, ArrayList<Account> accounts) {
+	@Override
+	public boolean isAccountValid(Account acc) {
 		Scanner input = new Scanner(System.in);
 		String filename = "DadosConta.txt";
 		
@@ -109,16 +109,6 @@ public class Screen extends JFrame implements ActionListener,Security{
 		return false;
 	}
 	
-		public boolean AccountValid() {
-		Account account = new Account(emailBox.getName(),new String(passwordBox.getPassword()));
-		ArrayList<Account> accounts = new ArrayList<Account>();
-		isAccountValid(account, accounts);
-		if(isAccountValid(account, accounts)) {
-			return true;
-		}
-		return false;
-	}*/
-	
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(!isEmailValid(emailBox.getText())) {
@@ -129,11 +119,11 @@ public class Screen extends JFrame implements ActionListener,Security{
 			Error errorPassword = new Error();
 			errorPassword.showPasswordSignUpError(stockScreen);
 		}
-		/*else if(AccountValid()) {
+		else if(isAccountValid(new)) {
 			Error accRegistered = new Error();
 			accRegistered.AccountRegistered(stockScreen);
 			openStockScreen();
-		}*/
+		}
 		else {
 			new Account(emailBox.getText(),new String(passwordBox.getPassword()));
 			Error error= new Error();
@@ -141,7 +131,7 @@ public class Screen extends JFrame implements ActionListener,Security{
 		}
 	}
 
-	/*private static void openStockScreen() {
+	private static void openStockScreen() {
 		JFrame stockScreen = new JFrame("Stock");
 		stockScreen.setVisible(true);
 		stockScreen.setSize(1200,800);
@@ -149,11 +139,7 @@ public class Screen extends JFrame implements ActionListener,Security{
 		stockScreen.setResizable(false);
 		stockScreen.setLocationRelativeTo(null);
 		stockScreen.setLayout(null);
-		
-		
-		
-		JTextArea products = new JTextArea("");
-	}*/
+	}
 	
 	
 }
