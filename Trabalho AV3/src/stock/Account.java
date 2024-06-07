@@ -3,25 +3,17 @@ package stock;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Objects;
 
-public class Account implements Security {
+public class Account {
 	private String email;
 	private String password;
 	private Stock stock;
 	
 	public Account(String email, String password) {
-		while(!isEmailValid(email) && !isPasswordValid(password)){
+		
 		this.email = email;
-			if(!isPasswordValid(password)) {
-				throw new IllegalArgumentException("A sua senha contém caracteres especiais, redigite"); 
-			}
-			if(!isEmailValid(email)) {
-				throw new IllegalArgumentException("O seu email está digitado no formato errado, redigite");
-			}
-			this.email = email;
-			this.password = password;
-		}
-			
+		this.password = password;
 		this.stock = new Stock();
 		
 		String filename = "DadosConta.txt";                     
@@ -48,8 +40,6 @@ public class Account implements Security {
 	public Stock getStock() {
 		return stock;
 	}
-
-	
 	
 	@Override
 	public String toString() {
@@ -57,19 +47,22 @@ public class Account implements Security {
 	}
 
 	@Override
-	public boolean isPasswordValid(String password) {
-		return password.matches("[a-zA-Z0-9]");
+	public int hashCode() {
+		return Objects.hash(email, password, stock);
 	}
 
 	@Override
-	public boolean isEmailValid(String email) {
-		return email.matches("(.*)@gmail.com");	
-		}
-
-	@Override
-	public boolean isAccountValid(String email, String password) {
-		return true;
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Account other = (Account) obj;
+		return Objects.equals(email, other.email) && Objects.equals(password, other.password)
+				&& Objects.equals(stock, other.stock);
 	}
-
+	
 	
 }
